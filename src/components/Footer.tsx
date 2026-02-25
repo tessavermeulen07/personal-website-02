@@ -20,7 +20,7 @@ export function Footer() {
             Over
           </a>
           <a
-            href="#"
+            href="/contact"
             className="text-slate-600 transition hover:text-slate-900"
           >
             Contact
