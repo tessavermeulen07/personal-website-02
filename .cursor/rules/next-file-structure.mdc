@@ -1,0 +1,26 @@
+---
+description: Afspraken over Next.js App Router bestandsstructuur en naamgeving voor routes, components en logica.
+globs: app/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Next.js App Router structuur
+
+- Gebruik de **App Router** met een `app/` map:
+  - `app/layout.tsx` voor de hoofd-layout.
+  - `app/page.tsx` voor de startpagina.
+  - Nieuwe routes als mappen met `page.tsx` (`app/route-naam/page.tsx`).
+- Bewaar gedeelde UI in:
+  - `app/(groep)/_components/` of
+  - een centrale `components/` map elders in het project.
+- Plaats niet-UI logica buiten pages/components:
+  - `lib/` voor helpers en services.
+  - `hooks/` voor custom hooks.
+  - `types/` voor gedeelde types.
+- API-routes in `app/api/.../route.ts`.
+
+# Naamgeving
+
+- Routes en mappen: lower-case of kebab-case (`user-profile`, `dashboard`).
+- Componentbestanden: PascalCase (`UserCard.tsx`, `MainLayout.tsx`).
+

@@ -1,0 +1,25 @@
+---
+description: Richtlijnen voor React components en Tailwind CSS styling (utility-volgorde, responsive en dark mode).
+globs: **/*.{tsx,jsx}
+alwaysApply: false
+---
+
+# React componenten
+
+- Gebruik functionele components met hooks.
+- Maak components standaard Server Components; gebruik `\"use client\"` alleen bij state, events of browser-API's.
+- Trek herbruikbare logica uit components in custom hooks (`hooks/useSomething.ts`).
+
+# Tailwind CSS styling
+
+- Gebruik Tailwind utilities als primaire manier van stylen.
+- Orden classes grofweg als:
+  - Layout: `flex`, `grid`, `gap-*`, `w-*`, `h-*`.
+  - Typografie: `text-*`, `font-*`, `leading-*`.
+  - Decoratie: `bg-*`, `border-*`, `rounded-*`, `shadow-*`.
+  - Varianten: `hover:`, `focus:`, `active:`, `md:`, `lg:`, `dark:`.
+- Werk mobile-first:
+  - Basis zonder breakpoints,
+  - Daarna `sm:`, `md:`, `lg:`, `xl:` alleen waar nodig.
+- Gebruik waar mogelijk design tokens uit `tailwind.config` (bijv. `text-primary`, `bg-muted`) i.p.v. willekeurige kleuren.
+

@@ -1,0 +1,18 @@
+---
+description: Kernregels voor Next.js App Router, React, TypeScript en Nederlandse documentatie in dit project.
+alwaysApply: true
+---
+
+# Kernregels
+
+- Gebruik overal **TypeScript** (`.ts` / `.tsx`).
+- Schrijf **functionele React components met hooks** (geen class components).
+- Schrijf **commentaar en documentatie in het Nederlands**.
+- Houd components **klein en herbruikbaar**; verplaats complexe logica naar hooks of hulpfuncties.
+
+# Commentaar & documentatie
+
+- Gebruik commentaar spaarzaam en leg vooral uit **waarom** iets zo is.
+- Gebruik korte Nederlandse zinnen of JSDoc-stijl boven functies/components.
+- README en andere documentatie zijn standaard Nederlands, behalve wanneer externe Engelstalige termen of API's worden aangehaald.
+

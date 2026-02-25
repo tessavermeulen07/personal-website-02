@@ -1,0 +1,77 @@
+---
+description: Projectregels voor Next.js (App Router), React, Tailwind CSS en TypeScript in dit project.
+---
+
+## Algemene principes
+
+- Schrijf **functionele React components met hooks** (geen class components).
+- Gebruik **TypeScript** overal (`.ts` / `.tsx`).
+- Schrijf **commentaar en documentatie in het Nederlands**.
+- Houd components **klein en herbruikbaar**; verplaats complexe logica naar aparte hooks of hulpfuncties.
+
+## Bestandsstructuur (Next.js App Router)
+
+- Gebruik de **App Router** met een `app/` map:
+  - Hoofd-layout in `app/layout.tsx`.
+  - Startpagina in `app/page.tsx`.
+  - Nieuwe routes als submappen in `app/naam/page.tsx`.
+- Houd gedeelde UI components in `app/(...)/*/_components/` of een centrale `components/` map.
+- Houd niet-UI logica in aparte mappen:
+  - `lib/` voor helpers en services.
+  - `hooks/` voor custom React hooks.
+  - `types/` voor gedeelde TypeScript types.
+- API-routes in `app/api/.../route.ts`.
+
+## Naming conventions
+
+- **Bestanden & mappen**
+  - React components: PascalCase (`Button.tsx`, `UserCard.tsx`).
+  - Hooks: camelCase met `use` prefix (`useUser.ts`, `useAuth.ts`).
+  - Hulpfuncties: camelCase (`formatDate.ts`, `fetchUsers.ts`).
+  - Route-segmenten: kebab-case of lower-case (`/dashboard`, `/user-profile` → map `user-profile`).
+
+- **Components**
+  - Componentnamen in PascalCase (`UserCard`, `MainLayout`).
+  - Props-interfaces in PascalCase met `Props` suffix (`UserCardProps`).
+  - Gebruik duidelijke namen voor props (`onSubmit`, `isLoading`, `variant`).
+
+- **Types & interfaces**
+  - Types en interfaces in PascalCase (`User`, `UserProfile`, `ApiResponse`).
+  - Exporteer gedeelde types uit `types/` of een duidelijke `types.ts`.
+
+## Styling (Tailwind CSS)
+
+- Gebruik **Tailwind utilities** als primaire manier van stylen.
+- Groepeer Tailwind classes logisch:
+  - Eerst layout (`flex`, `grid`, `gap-4`, `w-full`),
+  - Dan typografie (`text-sm`, `font-semibold`, `text-gray-700`),
+  - Dan decoratie (`bg-*`, `border`, `rounded-lg`, `shadow`),
+  - Dan varianten (`hover:`, `focus:`, `md:`, `lg:`, `dark:`).
+- Gebruik waar mogelijk **design tokens** uit `tailwind.config` (bijv. `text-primary`, `bg-muted`) i.p.v. willekeurige kleuren.
+- Werk **mobile-first**:
+  - Basis-styling zonder breakpoint,
+  - Vervolgens `sm:`, `md:`, `lg:`, `xl:` waar nodig.
+- Gebruik `dark:` varianten als het project dark mode ondersteunt.
+
+## React & hooks
+
+- Elke component:
+  - Is standaard een **function component**.
+  - Is waar mogelijk een **Server Component**; maak een component alleen `\"use client\"` als het echt nodig is (state, effecten, browser-API's, event handlers).
+- Gebruik custom hooks om herbruikbare logica uit components te trekken.
+- Houd de hook-regels aan (alleen bovenaan in function components of andere hooks aanroepen).
+
+## TypeScript-regels
+
+- Typiseer component props expliciet met een `Props` type of interface.
+- Vermijd `any`; gebruik specifieke types of `unknown` met runtime checks.
+- Typiseer async-functies met de juiste `Promise<...>` return types.
+- Gebruik enums of union types voor beperkte waardes (`"primary" | "secondary"`).
+
+## Commentaar & documentatie
+
+- Schrijf commentaar in het **Nederlands** en gebruik het spaarzaam:
+  - Leg *waarom* iets gebeurt uit, niet *wat* de code doet.
+  - Gebruik JSDoc-stijl of korte zinnen boven functies/components indien nodig.
+- Houd README en eventuele extra documentatie in het Nederlands, tenzij er een goede reden is om Engels te gebruiken (bijv. externe API-documentatie).
+
